@@ -1,4 +1,4 @@
-package com.bod.consumer.KCL;
+package com.bod.consumer.kcl;
 
 import com.amazonaws.services.kinesis.clientlibrary.interfaces.IRecordProcessor;
 import com.amazonaws.services.kinesis.clientlibrary.interfaces.IRecordProcessorFactory;

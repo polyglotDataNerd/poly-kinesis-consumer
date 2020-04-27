@@ -1,4 +1,4 @@
-package com.bod.consumer.Utils;
+package com.bod.consumer.utils;
 
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;

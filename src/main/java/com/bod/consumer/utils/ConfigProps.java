@@ -1,4 +1,4 @@
-package com.bod.consumer.Utils;
+package com.bod.consumer.utils;
 
 import org.apache.commons.configuration2.Configuration;
 import org.apache.commons.configuration2.FileBasedConfiguration;
