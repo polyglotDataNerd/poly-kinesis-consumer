@@ -31,7 +31,7 @@ to generate dependant libraries within the pom.xml file.
 Notable Classes:   
      
  1. [KinConsumer](https://github.com/polyglotDataNerd/poly-kinesis-consumer/blob/master/src/main/java/com/bod/consumer/KinConsumer.java): This object is the entry class to run the pipeline it uses the [ExecutorService](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html) interface to maintain thread health. This entry point creates the worker and the worker factories that poll and process from the stream.
- 2. [KinRecordProcess](https://github.com/polyglotDataNerd/poly-kinesis-consumer/blob/master/src/main/java/com/bod/consumer/KCL/KinRecordProcess.java): This object is the processor, it has an internal queue to manage the processing and the polling of data to not maximize resources. 
+ 2. [KinRecordProcess](https://github.com/polyglotDataNerd/poly-kinesis-consumer/blob/master/src/main/java/com/bod/consumer/kcl/KinRecordProcess.java): This object is the processor, it has an internal queue to manage the processing and the polling of data to not maximize resources. 
 
 **Application Arguments:**
 
