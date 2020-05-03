@@ -58,7 +58,7 @@ public class KinRecordProcess implements IRecordProcessor {
     private SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
     private SimpleDateFormat ftkey = new SimpleDateFormat("yyyy-MM-dd-HHmmss");
     private SimpleDateFormat dtc = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    private StringBuilder batchstring = new StringBuilder();
+    private StringBuffer batchstring = new StringBuffer(50000000);
     private String kinesisShardId;
     private long nextCheckpointTimeInMillis;
     /* need to synchronize HashSet to make thread safe in multi-threaded environment*/
@@ -319,7 +319,13 @@ public class KinRecordProcess implements IRecordProcessor {
                  * It is imperative that the user manually synchronize on the returned set when iterating over it, Failure to follow this advice may result in non-deterministic
                  * behavior. According to implementation. {@link batcharray}
                  */
-                batcharray.stream().distinct().forEach(i -> batchstring.append(i).append(System.lineSeparator()));
+
+                /* It is imperative that the user manually synchronize on the returned set when iterating over it */
+                synchronized (batcharray) {
+                    batcharray.stream().distinct().forEach(i -> batchstring.append(i).append(System.lineSeparator()));
+                    batcharray.clear();
+                }
+
                 ByteArrayOutputStream compress = new CompressWrite().writestream(batchstring.toString());
                 objectMetadata.setSSEAlgorithm(ObjectMetadata.AES_256_SERVER_SIDE_ENCRYPTION);
                 objectMetadata.setContentLength(compress.size());
@@ -332,7 +338,6 @@ public class KinRecordProcess implements IRecordProcessor {
 
                 /*resets StringBuilder and Array*/
                 batchstring.setLength(0);
-                batcharray.clear();
                 compress.close();
             }
             processRecords(records, checkpointer /* Protected checkpointer */);
