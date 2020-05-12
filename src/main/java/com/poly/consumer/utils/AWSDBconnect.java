@@ -1,4 +1,4 @@
-package com.bod.consumer.utils;
+package com.poly.consumer.utils;
 
 import com.sun.rowset.CachedRowSetImpl;
 import org.postgresql.copy.CopyManager;

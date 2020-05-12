@@ -1,4 +1,4 @@
-package com.bod.consumer.kcl;
+package com.poly.consumer.kcl;
 
 import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
 import com.amazonaws.services.kinesis.clientlibrary.exceptions.InvalidStateException;
@@ -12,9 +12,9 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.bod.consumer.utils.CompressWrite;
-import com.bod.consumer.utils.ConfigProps;
-import com.bod.consumer.utils.JSONTransformer;
+import com.poly.consumer.utils.CompressWrite;
+import com.poly.consumer.utils.ConfigProps;
+import com.poly.consumer.utils.JSONTransformer;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

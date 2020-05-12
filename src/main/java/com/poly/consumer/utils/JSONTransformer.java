@@ -1,4 +1,4 @@
-package com.bod.consumer.utils;
+package com.poly.consumer.utils;
 
 import com.github.wnameless.json.flattener.JsonFlattener;
 import org.apache.commons.logging.Log;

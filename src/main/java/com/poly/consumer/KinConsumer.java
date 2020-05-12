@@ -1,4 +1,4 @@
-package com.bod.consumer;
+package com.poly.consumer;
 
 import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
 import com.amazonaws.auth.STSAssumeRoleSessionCredentialsProvider;
@@ -8,8 +8,8 @@ import com.amazonaws.services.kinesis.clientlibrary.lib.worker.KinesisClientLibC
 import com.amazonaws.services.kinesis.clientlibrary.lib.worker.Worker;
 import com.amazonaws.services.securitytoken.AWSSecurityTokenService;
 import com.amazonaws.services.securitytoken.AWSSecurityTokenServiceClientBuilder;
-import com.bod.consumer.kcl.KinRecordFactory;
-import com.bod.consumer.utils.ConfigProps;
+import com.poly.consumer.kcl.KinRecordFactory;
+import com.poly.consumer.utils.ConfigProps;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
