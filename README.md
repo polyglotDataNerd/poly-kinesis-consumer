@@ -30,8 +30,8 @@ to generate dependant libraries within the pom.xml file.
 
 Notable Classes:   
      
- 1. [KinConsumer](https://github.com/polyglotDataNerd/poly-kinesis-consumer/blob/master/src/main/java/com/bod/consumer/KinConsumer.java): This object is the entry class to run the pipeline it uses the [ExecutorService](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html) interface to maintain thread health. This entry point creates the worker and the worker factories that poll and process from the stream.
- 2. [KinRecordProcess](https://github.com/polyglotDataNerd/poly-kinesis-consumer/blob/master/src/main/java/com/bod/consumer/kcl/KinRecordProcess.java): This object is the processor, it has an internal queue to manage the processing and the polling of data to not maximize resources. 
+ 1. [KinConsumer](../src/main/java/com/poly/consumer/KinConsumer.java): This object is the entry class to run the pipeline it uses the [ExecutorService](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html) interface to maintain thread health. This entry point creates the worker and the worker factories that poll and process from the stream.
+ 2. [KinRecordProcess](../src/main/java/com/poly/consumer/kcl/KinRecordProcess.java): This object is the processor, it has an internal queue to manage the processing and the polling of data to not maximize resources. 
 
 **Application Arguments:**
 
@@ -49,16 +49,16 @@ Infrastructure
     
 Terraform Modules:
 
-* [infra](https://github.com/polyglotDataNerd/poly-kinesis-consumer/tree/master/infrastructure/infra): This builds the current ECS and Cloudwatch infrastructure to house container service.   
+* [infra](../infrastructure/infra): This builds the current ECS and Cloudwatch infrastructure to house container service.   
  
-* [app](https://github.com/polyglotDataNerd/poly-kinesis-consumer/tree/master/infrastructure/app): This builds the container service and references the docker image in ECR and also the ECS cluster the services will run in. 
+* [app](../infrastructure/app): This builds the container service and references the docker image in ECR and also the ECS cluster the services will run in. 
 
 Build:
 
-* [apply](https://github.com/polyglotDataNerd/poly-kinesis-consumer/blob/master/infrastructure/apply.sh): This shell takes an environment variable and builds the end to end service. 
+* [apply](../infrastructure/apply.sh): This shell takes an environment variable and builds the end to end service. 
     
         source ~/poly-kinesis-consumer/infrastructure/apply.sh "us-west-2-prod"
  
-* [destroy](https://github.com/polyglotDataNerd/poly-kinesis-consumer/blob/master/infrastructure/destroy.sh): This This shell takes an environment variable and destroys the end to end service.
+* [destroy](../infrastructure/destroy.sh): This This shell takes an environment variable and destroys the end to end service.
     
         source ~/poly-kinesis-consumer/infrastructure/destroy.sh "us-west-2-prod" 
